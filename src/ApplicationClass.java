@@ -16,6 +16,20 @@ class Person {
         System.out.println("Hello there!");
     }
 
+    int calculateYearsToRetirement() {
+        int yearsLeft = 65 - age;
+        return yearsLeft;
+
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    String getName() {
+        return name;
+    }
+
 }
 
 
@@ -27,12 +41,14 @@ public class ApplicationClass {
         person1.speak();
         person1.sayHello();
 
-        Person person2 = new Person();
-        person2.name = "Sarah Smith";
-        person2.age = 20;
-        person2.speak();
-        person2.sayHello();
-
+        int years = person1.calculateYearsToRetirement();
+        System.out.println("Years till retirement " + years);
         System.out.println(person1.name);
+
+        int age = person1.getAge();
+        String name = person1.getName();
+
+        System.out.println("Name is " + name);
+        System.out.println("Age is " + age);
     }
 }
