@@ -1,3 +1,5 @@
+package collectionsFramework;
+
 import java.util.ArrayList;
 
 public class ApplicationArrayList {

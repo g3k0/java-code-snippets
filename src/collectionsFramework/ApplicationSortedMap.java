@@ -1,3 +1,5 @@
+package collectionsFramework;
+
 import java.util.*;
 
 public class ApplicationSortedMap {
