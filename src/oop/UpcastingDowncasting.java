@@ -1,3 +1,5 @@
+package oop;
+
 class MachineD {
     public void start() {
         System.out.println("oop.Machine started");
@@ -6,7 +8,7 @@ class MachineD {
 
 class Camera extends MachineD {
     public void start() {
-        System.out.println("Camera started");
+        System.out.println("oop.Camera started");
     }
 
     public void snap() {

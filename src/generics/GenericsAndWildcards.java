@@ -1,31 +1,33 @@
+package generics;
+
 import java.util.ArrayList;
 
-class MachineG {
+class Machine {
     @Override
     public String toString() {
-        return "MachineG{}";
+        return "generics.Machine{}";
     }
 }
 
-class CameraG extends MachineG {
+class Camera extends Machine {
     @Override
     public String toString() {
-        return "CameraG{}";
+        return "generics.Camera{}";
     }
 }
 
 public class GenericsAndWildcards {
     public static void main(String[] args) {
 
-        ArrayList<MachineG> list = new ArrayList<MachineG>();
+        ArrayList<Machine> list = new ArrayList<Machine>();
 
-        list.add(new MachineG());
-        list.add(new MachineG());
+        list.add(new Machine());
+        list.add(new Machine());
 
-        ArrayList<CameraG> list2 = new ArrayList<CameraG>();
+        ArrayList<Camera> list2 = new ArrayList<Camera>();
 
-        list2.add(new CameraG());
-        list2.add(new CameraG());
+        list2.add(new Camera());
+        list2.add(new Camera());
 
         showList(list);
         showList(list2);
