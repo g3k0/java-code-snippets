@@ -1,5 +1,5 @@
-Java Tutorial For Complete Beginners
-====================================
+Java Code Snippets
+==================
 
 ## About
 This project contains useful code snippets about the various topics of Java language. 
