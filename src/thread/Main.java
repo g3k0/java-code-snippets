@@ -2,6 +2,7 @@ package thread;
 
 import concurrency.GetSitePage;
 import concurrency.GetSitePageExecutor;
+import concurrency.GetSitePageForkJoin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +17,12 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
-        try {
+        /*try {
             m.concurrencyExampleWithExecutor();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
-        }
+        }*/
+        m.concurrencyExampleWithForkJoin();
     }
 
     private void threadExample() {
@@ -88,5 +90,13 @@ public class Main {
         }
 
         ex.shutdown();
+    }
+
+    private void concurrencyExampleWithForkJoin() {
+        ForkJoinPool f = new ForkJoinPool();
+        System.out.println(f.invoke(new GetSitePageForkJoin("http://www.christianpalazzo.org")));
+        System.out.println(f.invoke(new GetSitePageForkJoin("http://www.google.it")));
+
+        f.shutdown();
     }
 }
