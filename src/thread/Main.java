@@ -1,14 +1,24 @@
 package thread;
 
 import concurrency.GetSitePage;
+import concurrency.GetSitePageExecutor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 
 public class Main {
     public static void main(String[] args) {
         Main m = new Main();
 
-        try {
+        /*try {
             m.concurrencyExampleWithThread();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        try {
+            m.concurrencyExampleWithExecutor();
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
@@ -62,5 +72,21 @@ public class Main {
 
         System.out.println("OUTPUT GOOGLE");
         System.out.println(s2.getContent());
+    }
+
+    private void concurrencyExampleWithExecutor() throws InterruptedException, ExecutionException {
+        List<Callable<String>> sites = new ArrayList<Callable<String>>();
+        sites.add(new GetSitePageExecutor("http://www.christianpalazzo.org"));
+        sites.add(new GetSitePageExecutor("http://www.google.it"));
+
+        ExecutorService ex = Executors.newSingleThreadExecutor();
+
+        List<Future<String>> out = ex.invokeAll(sites);
+
+        for(Future<String> future: out) {
+            System.out.println(future.get());
+        }
+
+        ex.shutdown();
     }
 }
