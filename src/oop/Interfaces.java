@@ -50,7 +50,7 @@ public class Interfaces {
         outputInfo(person1);
     }
 
-    // I can pass info in method as paarameter
+    // I can pass info in method as parameter
     private static void outputInfo(Info info) {
         info.showInfo();
     }
